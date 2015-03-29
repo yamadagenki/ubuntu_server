@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+# -*- coding: utf-8 -*-
 # TODO cookbook分割した方がいいと思うんだけど、
 # 手元の開発環境整備だけだし、とりあえずこれで
 
@@ -22,6 +24,11 @@ execute "rails.install" do
   action :run
 end
 
+execute "lotus.install" do
+  command "gem install lotusrb"
+  action :run
+end
+
 gem_package "bundler" do
   action :install
 end
@@ -32,7 +39,7 @@ end
   end
 end
 
-%w{git libxml2}.each do |p|
+%w{git libxml2 tree}.each do |p|
   package p do
     action :install
   end
